@@ -29,3 +29,46 @@ dots.forEach((dot, index) => {
         showSlide(index);
     });
 });
+
+
+// HEADER SCROLL HIDE/SHOW
+// let lastScrollY = window.scrollY;
+
+// const header = document.querySelector("header");
+
+// window.addEventListener("scroll", () => {
+
+//     if (window.scrollY > lastScrollY) {
+//         // scrolling down
+//         header.classList.add("hide");
+//     } else {
+//         // scrolling up
+//         header.classList.remove("hide");
+//     }
+
+//     lastScrollY = window.scrollY;
+
+// });
+
+let lastScrollY = window.scrollY;
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+
+    // Always show the header near the top of the page
+    if (window.scrollY < 100) {
+        header.classList.remove("hide");
+    } else if (window.scrollY > lastScrollY) {
+        // Scrolling down
+        header.classList.add("hide");
+    } else {
+        // Scrolling up
+        header.classList.remove("hide");
+    }
+
+    lastScrollY = window.scrollY;
+
+});
+
+
+

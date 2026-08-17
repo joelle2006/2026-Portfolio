@@ -2,6 +2,11 @@
    GLOBAL
 ========================================= */
 
+* {
+    box-sizing: border-box;
+}
+
+
 body {
     margin: 0;
     background-color: black;
@@ -18,13 +23,36 @@ body {
    HEADER
 ========================================= */
 
+main {
+    padding-top: 90px;
+}
+
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     background-color: #333;
-    padding: 15px 40px;
+    
+    /* padding: 15px 40px; */
+    padding: 15px 32px;
+
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+header.hide {
+    transform: translateY(-100%);
+}
+
+.logo {
+    flex-shrink: 0;
 }
 
 .logo a {
@@ -36,7 +64,9 @@ header {
 
 nav {
     display: flex;
-    gap: 30px;
+    /* gap: 30px; */
+    gap: 24px;
+    flex-wrap: nowrap;
 }
 
 nav a {
@@ -47,6 +77,8 @@ nav a {
     padding: 10px 0;
     border-bottom: 2px solid transparent;
     transition: border-color 0.3s;
+
+    white-space: nowrap; /* prevents text from wrapping to the next line */
 }
 
 nav a:hover {
@@ -124,11 +156,94 @@ nav a.active {
     align-items: center;
     gap: 40px;
     padding: 40px;
+    margin-top: 80px;
 }
 
 .about-text {
     flex: 1;
 }
+
+
+.hobbies {
+    margin-top: 60px;
+    padding-bottom: 80px;
+}
+
+.hobbies-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.hobby-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.hobby-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.hobby-btn:hover {
+    transform: scale(1.1);
+}
+
+.hobby-btn object {
+    width: 48px;
+    height: 48px;
+    pointer-events: none; /* Makes the button receive the click */
+}
+
+.hobby-section {
+    display: none;
+    margin-top: 40px;
+}
+
+.hobby-section.active {
+    display: block;
+}
+
+.hobby-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.hobby-text {
+    flex: 1;
+}
+
+.hobby-text h3 {
+    margin-bottom: 16px;
+}
+
+.hobby-text p {
+    line-height: 1.7;
+}
+
+.hobby-gallery {
+    flex: 1;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.hobby-gallery img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    /* border-radius: 10px; */
+}
+
+
 
 /* =========================================
    PROJECTS PAGE
@@ -142,11 +257,10 @@ nav a.active {
     justify-content: space-between;
 
     gap: 60px;
-    padding: 80px 40px;
 }
 
 .project {
-    padding: 80px 40px;
+    padding: 40px 40px; /* top/bottom, left/right */
 }
 
 .project-text {
@@ -154,6 +268,86 @@ nav a.active {
     
 }
 
+.badge { /* Research project badges */
+    display: inline-block;
+    padding: 6px 12px;
+    margin-right: 8px;
+    margin-bottom: 10px;
+
+    background: #444;
+    color: white;
+
+    border-radius: 999px;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   SECTION DIVIDER
+=========================================
+*/
+
+.section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin: 80px 0;
+}
+
+
+/* =========================================
+   GEAR ANIMATION   
+========================================= */
+@keyframes spinCW {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinCCW {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+.gear1,
+.gear2,
+.gear3 {
+    width: 28px;
+}
+
+.gear1 {
+    animation: spinCW 10s linear infinite;
+}
+
+.gear2 {
+    animation: spinCCW 10s linear infinite;
+    margin: 0 -7px; /* move middle gear closer to left and right gears */
+}
+
+.gear3 {
+    animation: spinCW 10s linear infinite;
+}
+
+.divider-gears {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 100px;
+    margin-bottom: 80px;
+}
+
+/* RESEARCH PROJECTS */
 
 .project-image {
     flex: 0.8;
@@ -163,8 +357,8 @@ nav a.active {
     align-items: flex-start;
 }
 
-.project-image img {
-    /* width: 100%; */
+.project-image > img {
+    width: 100%;
     border-radius: 10px; 
 
     width: 70%;
@@ -174,44 +368,15 @@ nav a.active {
 }
 
 .project-subsection {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    gap: 60px;
     padding: 0px 40px 80px 40px;
 }
 
-.cad-gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-
-    width: 100%;      /* controls the overall gallery size */
-    max-width: 700px;
+.project-text li {
+    margin-bottom: 12px;
 }
 
-.cad-gallery img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-
-    border-radius: 10px;
-    display: block;
-}
-
-.gallery-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.gallery-caption {
-    margin-top: 12px;
-    text-align: center;
-    color: #bbb;
-    font-size: 14px;
-    font-style: italic;
+.project-text li:last-child {
+    margin-bottom: 0;
 }
 
 
@@ -225,6 +390,13 @@ nav a.active {
 .carousel-item {
     display: none;
     margin: 0;
+
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.carousel-item a {
+    display: block;
 }
 
 .carousel-item.active {
@@ -233,18 +405,28 @@ nav a.active {
 
 .carousel img {
     width: 100%;
-    border-radius: 10x;
     height: 320px;
+
     object-fit: contain;
 
     display: block;
+
+    border-radius: 10px;
+
 }
+
 
 .carousel figcaption {
     margin-top: 10px;
     text-align: center;
     color: #bbb;
+
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: bold;
 }
+
 
 .carousel-btn {
     position: absolute;
@@ -295,34 +477,74 @@ nav a.active {
 }
 
 
+/* =========================================
+   CIRCUIT TRACE SECTION DIVIDER
+========================================= */
+.line {
+    flex: 1;
+    height: 1px;
 
-.final-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    /* background: rgba(0,220,180,.25); */
+    background: rgba(255,255,255,.25);
 }
 
-.final-gallery figure {
-    margin: 0;
+.pcb-divider {
+    width: 45px;
+    height: auto;
 }
 
-.final-gallery img {
-    width: 100%;
-    height: 250px;
-    object-fit: contain;
+.trace {
+    fill: none;
 
-    border-radius: 10px;
-    display: block;
+    /* stroke: rgb(0,220,180); */
+    stroke: rgb(255,255,255);
+    stroke-width: 4;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+
+    /* animation: drawTrace .8s forwards; */
+    animation: drawTrace 5s ease-in-out infinite;
 }
 
-.final-gallery figcaption {
-    margin-top: 8px;
-    text-align: center;
-    color: #bbb;
-    font-size: 14px;
+.trace1 {
+    animation-delay: 0s;
 }
 
+.trace2 {
+    animation-delay: .4s;
+}
 
+.trace3 {
+    animation-delay: .8s;
+}
+
+.trace4 {
+    animation-delay: 1.2s;
+}
+
+@keyframes drawTrace {
+
+    0% {
+        stroke-dashoffset: 500;
+    }
+
+    40% {
+        stroke-dashoffset: 0;
+    }
+
+    80% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: 500;
+    }
+
+}
 
 /* ES50 */
 .es50-container {
@@ -343,6 +565,43 @@ nav a.active {
     object-fit: cover;
     border-radius: 10px;
 }
+
+
+/* ROBOT DIVIDER */
+/* .line {
+    width: 120px;
+    height: 1px;
+
+    background: rgba(255,255,255,.25);
+} */
+
+@keyframes drive {
+
+    0% {
+        transform: translateX(-30px);
+    }
+
+    40% {
+        transform: translateX(30px);
+    }
+
+    60% {
+        transform: translateX(30px);
+    }
+
+    100% {
+        transform: translateX(-30px);
+    }
+
+}
+ 
+.robot-divider {
+    width: 55px;
+    height: auto;
+
+    animation: drive 6s ease-in-out infinite;
+}
+
 
 /* =========================================
    ES51 GALLERY
@@ -380,12 +639,12 @@ nav a.active {
     background: rgba(60, 60, 60, 0.8);
     color: white;
 
-    padding: 10px 14px;
+    padding: 5px 8px;
 
     border-radius: 10px;
 
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 500;
 }
 
 .project-button {
@@ -418,6 +677,36 @@ nav a.active {
 .es51-gallery .bottom img {
     height: 180px;
 }
+
+
+/* SPRING DIVIDER */
+.spring-divider {
+    width: 40px;
+    height: auto;
+
+    transform-origin: center center;
+
+    animation: oscillate 2s ease-in-out infinite;
+}
+
+
+@keyframes oscillate {
+
+    0% {
+        transform: rotate(-18deg);
+    }
+
+    50% {
+        transform: rotate(18deg);
+    }
+
+    100% {
+        transform: rotate(-18deg);
+    }
+
+}
+
+
 
 /* =========================================
    ES125 GALLERY
@@ -452,15 +741,15 @@ nav a.active {
     left: 15px;
     bottom: 15px;
 
-    background: rgba(60,60,60,0.8);
+    background: rgba(60, 60, 60, 0.8);
     color: white;
 
-    padding: 10px 14px;
+    padding: 5px 8px;
 
     border-radius: 10px;
 
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 500;
 }
 
 .es125-gallery .bottom {
@@ -506,6 +795,53 @@ nav a.active {
     background: rgba(102,204,255,0.9);
 }
 
+
+/* BRIDGE DIVIDER */
+.bridge-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.triangle {
+    width: 20px;
+
+    opacity: 0;
+
+    animation: buildBridge 2.8s infinite;
+}
+
+.triangle:nth-child(1) { animation-delay: 0s; }
+.triangle:nth-child(2) { animation-delay: .2s; }
+.triangle:nth-child(3) { animation-delay: .4s; }
+.triangle:nth-child(4) { animation-delay: .6s; }
+.triangle:nth-child(5) { animation-delay: .8s; }
+.triangle:nth-child(6) { animation-delay: 1s; }
+.triangle:nth-child(7) { animation-delay: 1.2s; }
+
+@keyframes buildBridge {
+
+    0% {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
+
 /* =========================================
    ES120 BRIDGE GALLERY
 ========================================= */
@@ -542,10 +878,347 @@ nav a.active {
     background: rgba(60,60,60,0.8);
     color: white;
 
-    padding: 10px 14px;
+    padding: 5px 8px;
 
     border-radius: 10px;
 
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+/* LIGHTBOX FOR FULL IMAGE VIEWING */
+/* Make gallery images look clickable */
+.project-gallery img {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.project-gallery img:hover {
+    transform: scale(1.02);
+}
+
+
+/* Full-screen overlay */
+.lightbox {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+/* Enlarged image */
+.lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+/* Close button */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    color: white;
+    font-size: 42px;
+    font-weight: 300;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.lightbox-close:hover {
+    opacity: 0.7;
+}
+
+.lightbox video {
+    display: none;
+
+    max-width: 90vw;
+    max-height: 90vh;
+
+    border-radius: 12px;
+}
+
+
+
+
+
+/* CONTACT PAGE */
+.contact-container {
+    max-width: 650px;
+    margin: 100px auto;
+    padding: 0 20px;
+}
+
+.contact-container h1 {
+    margin-bottom: 8px;
+}
+
+.contact-subtitle {
+    margin-bottom: 40px;
+    color: #666;
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-item img {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+.contact-item a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.1rem;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+
+/* TEMP INDEX REFORMAT */
+
+.home-main {
+  min-height: calc(100vh - 90px);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 4.5rem 1rem 2rem;
+}
+
+.home-carousel {
+  position: relative;
+  width: min(1120px, 100%);
+  height: min(660px, calc(100vh - 140px));
+  min-height: 520px;
+  perspective: 1200px;
+}
+
+.home-slide {
+  position: absolute;
+  inset: 0;
+  width: min(760px, 76%);
+  height: 82%;
+  margin: auto;
+  border-radius: 24px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  cursor: pointer;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.22);
+  transform: translateX(0) scale(0.75);
+  transition: transform 450ms ease, opacity 450ms ease, filter 450ms ease;
+}
+
+.home-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.home-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.05) 25%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
+}
+
+.home-slide-content {
+  position: absolute;
+  z-index: 1;
+  left: clamp(1.5rem, 5vw, 3.5rem);
+  right: clamp(1.5rem, 5vw, 3.5rem);
+  bottom: clamp(1.5rem, 5vw, 3.5rem);
+  color: white;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 300ms ease 120ms, transform 300ms ease 120ms;
+}
+
+.home-slide.active .home-slide-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.home-slide-label {
+  margin: 0 0 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.home-slide-content h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.05;
+}
+
+.home-slide-content > p:not(.home-slide-label) {
+  max-width: 620px;
+  margin: 0.9rem 0 1.35rem;
+  line-height: 1.55;
+}
+
+.home-project-button {
+  display: inline-block;
+  padding: 0.8rem 1.15rem;
+  border: 1px solid white;
+  border-radius: 999px;
+  background: white;
+  color: #1f1f1f;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.home-project-button:hover {
+  transform: translateY(-2px);
+  background: #f2f2f2;
+}
+
+.home-slide.active {
+  z-index: 3;
+  opacity: 1;
+  pointer-events: auto;
+  cursor: default;
+  transform: translateX(0) scale(1);
+}
+
+.home-slide.previous,
+.home-slide.next {
+  z-index: 2;
+  opacity: 0.65;
+  pointer-events: auto;
+  filter: brightness(0.7);
+}
+
+.home-slide.previous {
+  transform: translateX(-48%) scale(0.76) rotateY(8deg);
+}
+
+.home-slide.next {
+  transform: translateX(48%) scale(0.76) rotateY(-8deg);
+}
+
+.home-carousel-arrow {
+  position: absolute;
+  z-index: 5;
+  top: 44%;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #1f1f1f;
+  cursor: pointer;
+  font-size: 1.6rem;
+  line-height: 1;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.home-carousel-arrow:hover {
+  transform: scale(1.08);
+  background: white;
+}
+
+.home-carousel-prev {
+  left: 1rem;
+}
+
+.home-carousel-next {
+  right: 1rem;
+}
+
+.home-carousel-dots {
+  position: absolute;
+  z-index: 5;
+  bottom: 0;
+  left: 50%;
+  display: flex;
+  gap: 0.6rem;
+  transform: translateX(-50%);
+}
+
+.home-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #b8b8b8;
+  cursor: pointer;
+}
+
+.home-dot.active {
+  background: #222;
+  transform: scale(1.25);
+}
+
+@media (max-width: 700px) {
+  .home-main {
+    min-height: calc(100vh - 70px);
+    padding: 4.5rem 0.5rem 1rem;
+  }
+
+  .home-carousel {
+    height: 590px;
+    min-height: 0;
+  }
+
+  .home-slide {
+    width: 88%;
+    height: 80%;
+  }
+
+  .home-slide.previous {
+    transform: translateX(-30%) scale(0.78);
+  }
+
+  .home-slide.next {
+    transform: translateX(30%) scale(0.78);
+  }
+
+  .home-slide-content h1 {
+    font-size: 2.15rem;
+  }
+
+  .home-slide-content > p:not(.home-slide-label) {
+    font-size: 0.92rem;
+  }
+
+  .home-carousel-arrow {
+    top: auto;
+    bottom: 3rem;
+    width: 42px;
+    height: 42px;
+  }
 }

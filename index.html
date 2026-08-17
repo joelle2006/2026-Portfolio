@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <!-- Adjusts sizing for mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Joelle Yoon | Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">    
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -24,9 +26,9 @@
             <a href="projects.html">Projects</a>
             <a href="contact.html">Contact</a>
         </nav>
-    </header>
+    </header>   
 
-    <main>
+    <!-- <main>
 
         <section class="projects">
 
@@ -70,17 +72,95 @@
                 </div>
             </a>
 
-            <a href="projects.html#es120-comsol" class="project-card">
-                <img src="images/es120 comsol project/es120_comsol_assum2 uniform.png" alt="ES120 Comsol Project">
-
-                <div class="overlay">
-                    <h3>Comsol Project</h3>
-                </div>
-            </a>
-
         </section>
 
+    </main> -->
+
+    <main class="home-main">
+        <section class="home-carousel" aria-label="Featured projects">
+            <article class="home-slide active" data-project="research">
+                <img src="images/slade lab (summer 25')/side view.JPG"
+                    alt="Shoe-binding ankle exoskeleton research prototype">
+                <div class="home-slide-content">
+                    <p class="home-slide-label">Harvard Slade Lab</p>
+                    <h1>Shoe-Binding Ankle Exoskeleton</h1>
+                    <p>Passive wearable assistance designed to support plantar flexion during walking.</p>
+                    <a class="home-project-button" href="projects.html#research">View project</a>
+                </div>
+            </article>
+
+            <article class="home-slide" data-project="es51">
+                <img src="images/es51 turf wars/chomp_lifted.jpeg"
+                    alt="The Chomper robot from the Turf Wars competition">
+                <div class="home-slide-content">
+                    <p class="home-slide-label">ES51 Computer-Aided Machine Design</p>
+                    <h1>Turf Wars Competition</h1>
+                    <p>A competition robot with a rotating chomp arm for collecting and storing game pieces.</p>
+                    <a class="home-project-button" href="projects.html#es51">View project</a>
+                </div>
+            </article>
+
+            <article class="home-slide" data-project="es125">
+                <img src="images/es125 egg drop project/egg_drop_CAD isometric.png"
+                    alt="CAD rendering of the egg drop device">
+                <div class="home-slide-content">
+                    <p class="home-slide-label">ES125 Mechanical Systems</p>
+                    <h1>Egg Drop Competition</h1>
+                    <p>A lightweight mass-spring-damper system engineered to protect an egg in a five-foot drop.</p>
+                    <a class="home-project-button" href="projects.html#es125">View project</a>
+                </div>
+            </article>
+
+            <article class="home-slide" data-project="es120-bridge">
+                <img src="images/es120 bridge/es120_bridge isometric.png"
+                    alt="Isometric CAD rendering of a bridge design">
+                <div class="home-slide-content">
+                    <p class="home-slide-label">ES120 Mechanics of Solids</p>
+                    <h1>Bridge Design Challenge</h1>
+                    <p>A laser-cut deck-truss arch bridge designed for strength while minimizing weight.</p>
+                    <a class="home-project-button" href="projects.html#es120-bridge">View project</a>
+                </div>
+            </article>
+
+            <article class="home-slide" data-project="es50">
+                <img src="images/es50 final project/IMG_3317.jpg"
+                    alt="EchoTap wearable electronics prototype">
+                <div class="home-slide-content">
+                    <p class="home-slide-label">ES50 Final Project</p>
+                    <h1>EchoTap</h1>
+                    <p>A wearable device designed to alert hard-of-hearing users to sounds in their surroundings.</p>
+                    <a class="home-project-button" href="projects.html#es50">View project</a>
+                </div>
+            </article>
+
+            <button class="home-carousel-arrow home-carousel-prev"
+                    type="button"
+                    aria-label="Show previous project">
+            &#10094;
+            </button>
+
+            <button class="home-carousel-arrow home-carousel-next"
+                    type="button"
+                    aria-label="Show next project">
+            &#10095;
+            </button>
+
+            <div class="home-carousel-dots" aria-label="Choose a project">
+                <button class="home-dot active" type="button" aria-label="Show exoskeleton project"></button>
+                <button class="home-dot" type="button" aria-label="Show EchoTap project"></button>
+                <button class="home-dot" type="button" aria-label="Show Turf Wars project"></button>
+                <button class="home-dot" type="button" aria-label="Show Egg Drop project"></button>
+                <button class="home-dot" type="button" aria-label="Show bridge project"></button>
+            </div>
+        </section>
     </main>
+
+
+
+
+
+    <script src="js/home.js"></script>
+
 
 </body>
 

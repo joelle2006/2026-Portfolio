@@ -1,45 +1,64 @@
 <!DOCTYPE html>
-<html>
-
-<header>
-    <div class="logo">
-        <a href="index.html">Joelle Yoon</a>
-    </div>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html" class = "active">Projects</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <!-- Adjusts sizing for mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Joelle Yoon | Projects</title>
+  <link rel="stylesheet" href="css/styles.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">    
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
 
 <body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">Joelle Yoon</a>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html" class = "active">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    
+
+    <div class="divider-gears">
+
+        <div class="line"></div>
+
+        <img src="images/gear.svg" class="gear1">
+        <img src="images/gear.svg" class="gear2">
+        <img src="images/gear.svg" class="gear3">
+
+        <div class="line"></div>
+
+    </div>
 
 
     <section id="research" class="project">
 
         <div class="project-text">
 
-            <h2>Passive Ankle Exoskeleton Research</h2>
+            <h2>Shoe-Binding Ankle Exoskeleton</h2>
 
-            <h4>2025 PRISE Fellow • Harvard Slade Lab</h4>
+            <div>
+                <span class="badge">Harvard Slade Lab</span>
+                <span class="badge">2025 PRISE Fellow</span>
+                <span class="badge">2025 HCRP Fellow</span>
+            </div>
 
             <p>
-                Conducted research as a 2025 PRISE Fellow at the Harvard Slade Lab
-                under the mentorship of Jae-Ryeong Choi, working specifically on the design
-                and development of a passive ankle exoskeleton to provide plantar
+                Under the mentorship of Jae-Ryeong Choi, designed and developed
+                a passive ankle exoskeleton to provide plantar
                 flexion assistance during walking.
             </p>
 
@@ -59,86 +78,12 @@
 
         </div>
 
-        <div class="project-image">
+        <!-- <div class="project-image">
 
             <img src="images/slade lab (summer 25')/prise_2025.JPEG"
                  alt="PRISE 2025 Cohort">
 
-        </div>
-
-    </section>
-
-
-    <!-- ===========================
-         CAD Design
-    ============================ -->
-
-    <section class="project-subsection">
-
-        <div class="project-text">
-
-            <h4>CAD Design</h4>
-
-            <p>
-                The main challenge in designing the exoskeleton interface was minimizing the amount of rigid components 
-                used in order to optimize usability and comfort. My initial CAD designs were modeled after the anatomy of the foot 
-                tripod; however, such a design limited adaptability. Thus, I eliminated the rigid component near the front of the foot 
-                and utilized a plantar fascia-inspired binding system to achieve a lightweight exoskeleton interface that had minimal 
-                interference when walking.
-            </p>
-
-            <!-- <ul>
-
-                <li>
-                        ?
-                </li>
-
-            </ul> -->
-
-        </div>
-
-        <div class="project-image">
-
-            <div class="gallery-container">
-
-                <div class="cad-gallery">
-
-                    <img src="images/slade lab (summer 25')/exo_cad_6.12 (2).png"
-                    alt="Early-stage CAD design 1">
-
-                    <img src="images/slade lab (summer 25')/exo_cad_6.13 (1).png"
-                    alt="Early-stage CAD design 2">
-
-                    <img src="images/slade lab (summer 25')/exo_cad_6.13 (2).png"
-                    alt="Early-stage CAD design 3">
-
-                </div>
-
-                <p class="gallery-caption">
-                    Early-stage Design of Exoskeleton
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <section class="project-subsection">
-
-        <div class="project-text">
-
-            <h4>Design Evolution</h4>
-
-            <p>
-                In this stage of the design process, I combined a moment arm model from a previously researched rigid ankle exoskeleton 
-                in my lab with my initial CAD design in order to compare the torque transmission capabilities of the two devices. 
-                Through integrating the two models, I increased my proficiency in my CAD skills, building upon previously learned 
-                modeling techniques from my engineering courses.
-            </p>
-
-        </div>
+        </div> -->
 
         <div class="project-image">
 
@@ -147,34 +92,48 @@
             <button class="carousel-btn prev">&#10094;</button>
 
             <figure class="carousel-item active">
-                <img src="images/slade lab (summer 25')/previous_rigid_exo.png">
+                <img src="images/slade lab (summer 25')/previous_rigid_exo.png" alt="Previously Researched Exoskeleton">
                 <figcaption>Previously Researched Exoskeleton</figcaption>
             </figure>
 
             <figure class="carousel-item">
-                <img src="images/slade lab (summer 25')/exo_cad_combine_6.25.png">
+                <img src="images/slade lab (summer 25')/exo_cad_combine_6.25.png" alt="Moment Arm + Initial Design">
                 <figcaption>Moment Arm + Initial Design</figcaption>
             </figure>
 
             <figure class="carousel-item">
-                <img src="images/slade lab (summer 25')/exo_cad_7.30 (2).png">
+                <img src="images/slade lab (summer 25')/exo_cad_7.30 (2).png" alt="Integrated CAD">
                 <figcaption>Integrated CAD</figcaption>
             </figure>
 
             <figure class="carousel-item">
-                <img src="images/slade lab (summer 25')/exo_cad_7.30 (1).png">
-                <figcaption>Integrated Front View</figcaption>
+                <img src="images/slade lab (summer 25')/exo_cad_7.30 (1).png" alt="Integrated CAD (Rear View)">
+                <figcaption>Integrated CAD (Rear View)</figcaption>
             </figure>
 
             <figure class="carousel-item">
-                <img src="images/slade lab (summer 25')/exo_cad_8.4 (2).png">
+                <img src="images/slade lab (summer 25')/exo_cad_8.4 (2).png" alt="Final Design">
                 <figcaption>Final Design</figcaption>
             </figure>
 
             <figure class="carousel-item">
-                <img src="images/slade lab (summer 25')/exo_cad_8.4 (1).png">
-                <figcaption>Final Front View</figcaption>
+                <img src="images/slade lab (summer 25')/exo_cad_8.4 (1).png" alt="Final CAD (Bottom View)">
+                <figcaption>Final CAD (Bottom View)</figcaption>
             </figure>
+
+            <figure class = "carousel-item">
+                <img src="images/slade lab (summer 25')/final_ankle_exo (3).jpg" alt="Final Prototype">
+                <figcaption>Final Prototype</figcaption>
+            </figure>
+
+            <figure class = "carousel-item">
+                <a href="images/slade lab (summer 25')/PRISE_YOON_JOELLE.pdf" target="_blank">
+                    <img src="images/slade lab (summer 25')/poster_preview.png" alt="Research Poster">
+                </a>
+
+                <figcaption>PRISE Poster (Click to Open)</figcaption>
+            </figure>
+            
 
             <button class="carousel-btn next">&#10095;</button>
 
@@ -185,74 +144,267 @@
                 <span class="dot"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
             </div>
 
         </div>
-            
+
+
+
+    </section>
+
+    
+
+
+
+    <div class="section-divider">
+
+        <div class="line"></div>
+
+        <img src="images/robot.svg" class="robot-divider" alt="Robot Divider">
+
+        <div class="line"></div>
+
+    </div>
+
+
+    <section id="es51" class="project">
+
+        <div class="project-text">
+            <h2>Turf Wars Competition</h2>
+            <p>
+                Cumulative project for Intro to Mechanical Engineering course (ES51) which consisted of a course-wide, team-based robotics competition. 
+                Challenges included maneuverability on both level and inclined surfaces, picking up and placing game pieces, and meeting size constraints. 
+                Utilized a lightweight, simple design consisting of a rotating "chomp" arm for item collection and storage. Won third place in the competition overall. 
+            </p>
+
+            <p>
+                <strong>Skills:</strong> Mechanical design, CAD (Solidworks), 3D printing, CNC milling, laser cutting, molding, prototyping, mechanical assembly.
+            </p>
+
+        </div>
+
+        <div class="project-image">
+
+            <div class="project-gallery es51-gallery">
+
+                <figure>
+                    <img src="images/es51 turf wars/chomp_lifted.jpeg" alt="Final Robot">
+
+                    <figcaption>Final Robot ("The Chomper")</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="images/es51 turf wars/chomp_lowered.jpeg" alt="Robot Side View">
+                    <figcaption>Lowered Chomp Arm Configuration</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="images/es51 turf wars/drivetrain_isometric.png" alt="Robot CAD Isometric View">
+                    <figcaption>CAD Isometric View</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="images/es51 turf wars/drivetrain_top view.png" alt="Robot CAD Top View">
+                    <figcaption>CAD Top View</figcaption>
+                </figure>
+
+                <figure class="bottom">
+                    <img src="images/es51 turf wars/swimmcanaics.JPG" alt="Team Photo">
+                    <figcaption>Team SWIMMCANAICS :)</figcaption>
+                </figure>
+
+            </div>
 
         </div>
 
     </section>
 
 
-    <section class="project-subsection">
 
-    <div class="project-text">
+    <div class="section-divider">
 
-        <h4>Final Prototype</h4>
+        <div class="line"></div>
 
-        <p>
-            Following multiple design iterations, I presented my findings at the 2026 Harvard Summer 
-            Undergraduate Research Village (HSURV) poster presentation. The final prototype was completed shortly after.
-        </p>
+        <img src="images/spring.svg" class="spring-divider" alt="Spring Divider">
 
-        <p>
-            Click the research poster to view the full PDF.
-        </p>
+        <div class="line"></div>
 
     </div>
 
-    <div class="project-image">
 
-        <div class="final-gallery">
+    <section id="es125" class="project">
 
-            <figure>
+        <div class="project-text">
+            <h2>Egg Drop Competition</h2>
+            <p>
+                Final design challenge for my Mechanical Systems course which involved designing a carrier capable
+                of withstanding a 5 ft minimum drop through applying knowledge of mass-spring-damper systems. Additional design criteria included
+                minimizing the weight and height of the egg carrier, along with the drop acceleration. The provided shocks had a maximum compression of 
+                around 1.3 inches.
 
-                <a href="images/slade lab (summer 25')/PRISE_YOON_JOELLE.pdf" target="_blank">
+                My team utilized square plates with cutouts to reduce weight, and simulated the different shocks and springs in
+                order to determine the optimal location for each spring and damper. Our final device was successfully able to withstand a 5ft drop.
+            </p>
 
-                    <img src="images/slade lab (summer 25')/poster_preview.png"
-                         alt="Research Poster">
+            <p>
+                <strong>Skills:</strong> Mechanical design, CAD, structural analysis, prototyping, 3D printing, laser cutting, and assembly.
+            </p>
+        </div>
 
-                </a>
+        <div class="project-image">
 
-                <figcaption>Research Poster (Click to Open)</figcaption>
+            <div class="project-gallery es125-gallery">
 
-            </figure>
+                <figure>
+                    <img src="images/es125 egg drop project/egg_drop build.jpeg"
+                        alt="Prototype">
+                    <figcaption>Building</figcaption>
+                </figure>
 
-            <figure>
-                <img src="images/slade lab (summer 25')/final_ankle_exo (3).jpg" alt="Final Prototype">
+                <figure>
+                    <img src="images/es125 egg drop project/egg_drop final.jpeg"
+                        alt="Final CAD Model">
+                    <figcaption>Final Device</figcaption>
+                </figure>
 
-                <figcaption>Final Prototype</figcaption>
-            </figure>
+                <figure>
+                    <img src="images/es125 egg drop project/egg_drop_CAD isometric.png"
+                        alt="Egg Drop CAD Isometric View">
+                    <figcaption>CAD Isometric View</figcaption>
+                </figure>
 
-            
+                <figure>
+                    <img src="images/es125 egg drop project/egg_drop_CAD front.png"
+                        alt="Final Design of Egg Drop Carrier">
+                    <figcaption>CAD Front View</figcaption>
+                </figure>
+
+                <figure class="bottom video-preview">
+                    <a href="images/es125 egg drop project/egg_drop.mov"
+                    class="video-link">
+
+                        <img src="images/es125 egg drop project/egg_drop_preview.jpg"
+                            alt="Egg Drop Demo">
+
+                        <div class="play-button">
+                            ▶
+                        </div>
+
+                    </a>
+
+                    <figcaption>Competition Video</figcaption>
+                </figure>
+
+            </div>
 
         </div>
 
+    </section>
+
+
+    <div class="section-divider">
+
+        <div class="line"></div>
+
+        <div class="bridge-divider">
+
+            <img src="images/simple-triangle.svg" class="triangle up" alt="">
+            <img src="images/inverted-triangle.svg" class="triangle down" alt="">
+            <img src="images/simple-triangle.svg" class="triangle up" alt="">
+            <img src="images/inverted-triangle.svg" class="triangle down" alt="">
+            <img src="images/simple-triangle.svg" class="triangle up" alt="">
+            <img src="images/inverted-triangle.svg" class="triangle down" alt="">
+            <img src="images/simple-triangle.svg" class="triangle up" alt="">
+
+        </div>
+
+        <div class="line"></div>
+
     </div>
 
-</section>
+
+    <section id="es120-bridge" class="project">
+
+        <div class="project-text">
+            <h2>Bridge Design Project</h2>
+            <p>
+                A fun design competition for my Mechanics of Solids course that allowed us to explore 
+                stress concentrations/failure hands-on. Material selection ranged between plywood and acrylic sheets, and 
+                bridge assembly could not include fasteners with the exception of moderate amounts of glue.
+
+                My team utilized a deck truss arch design with increased surface area at points of contact with the Instron,
+                adding cutouts wherever possible to minimize weight while ensuring structural integrity. 
+            </p>
+
+            <p>
+                <strong>Skills:</strong> Mechanical design, CAD, laser cutting, and assembly.
+            </p>
+        </div>
+
+        <div class="project-image">
+            <div class="project-gallery bridge-gallery">
+
+                <figure>
+                    <img src="images/es120 bridge/es120_bridge front.png"
+                        alt="Bridge Design">
+                    <figcaption>CAD Front View</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="images/es120 bridge/es120_bridge isometric.png"
+                        alt="Bridge Fabrication">
+                    <figcaption>CAD Isometric View</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="images/es120 bridge/es120_bridge_comp (1).jpeg"
+                        alt="Bridge Weigh-In">
+                    <figcaption>Bridge Weigh-in</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="images/es120 bridge/es120_bridge_comp (2).jpeg"
+                        alt="Instron Testing of Final Bridge">
+                    <figcaption>Instron Testing</figcaption>
+                </figure>
+
+            </div>
+        </div>
+
+    </section>
 
 
+    <div class="section-divider">
 
+        <div class="line"></div>
 
+        <svg class="pcb-divider"
+            viewBox="0 0 224 224"
+            xmlns="http://www.w3.org/2000/svg">
 
+            <path class="trace trace1" d="M200,122c-11.869,0-21.725,8.668-23.639,20H160c-13.234,0-24,10.76-24,23.986V210h8v-44.014
+            c0-8.814,7.178-15.986,16-15.986h16.361c1.913,11.332,11.77,20,23.639,20c13.234,0,24-10.766,24-24S213.234,122,200,122z
+            M200,162c-8.822,0-16-7.178-16-16s7.178-16,16-16s16,7.178,16,16S208.822,162,200,162z"/>
 
+            <path class="trace trace2" d="M92,62H76c0-13.234-10.766-24-24-24S28,48.766,28,62s10.766,24,24,24c10.426,0,19.295-6.693,22.6-16H92
+            c8.822,0,16,7.188,16,16.024V210h8V86.024C116,72.777,105.234,62,92,62z M52,78c-8.822,0-16-7.178-16-16s7.178-16,16-16
+            s16,7.178,16,16S60.822,78,52,78z"/>
 
+            <path class="trace trace3" d="M64,122H47.639c-1.914-11.332-11.77-20-23.639-20c-13.234,0-24,10.766-24,24s10.766,24,24,24
+            c11.869,0,21.725-8.668,23.639-20H64c8.822,0,16,7.184,16,16.014V210h8v-63.986C88,132.774,77.234,122,64,122z M24,142
+            c-8.822,0-16-7.178-16-16s7.178-16,16-16s16,7.178,16,16C40,134.822,32.822,142,24,142z"/>
 
+            <path class="trace trace4" d="M163.461,94h12.9c1.913,11.332,11.77,20,23.639,20c13.234,0,24-10.766,24-24s-10.766-24-24-24
+            c-11.869,0-21.725,8.668-23.639,20h-12.9c-6.297,0-11.42-5.125-11.42-11.426V14h-8v60.574C144.041,85.285,152.752,94,163.461,94z
+            M200,74c8.822,0,16,7.178,16,16s-7.178,16-16,16s-16-7.178-16-16S191.178,74,200,74z"/>
 
+        </svg>
 
+        <div class="line"></div>
 
+    </div>
 
 
     <section id="es50" class="project">
@@ -277,7 +429,7 @@
 
             <div class="es50-container">
 
-                <div class="es50-gallery">
+                <div class="project-gallery es50-gallery">
 
                     <img src="images/es50 final project/IMG_3317.jpg"
                         alt="EchoTap Prototype">
@@ -290,7 +442,7 @@
                 <a href="images/es50 final project/Elephish - Final Report (1).pdf"
                 target="_blank"
                 class="project-button">
-                    📄 View Final Report
+                    📄 Final Report
                 </a>
 
             </div>
@@ -300,177 +452,11 @@
     </section>
 
 
-    <section id="es51" class="project">
-
-        <div class="project-text">
-            <h2>Turf Wars Competition</h2>
-            <p>
-                Cumulative project for Intro to Mechanical Engineering course (ES51) which consisted of a course-wide, team-based robotics competition. 
-                Challenges included maneuverability on both level and inclined surfaces, picking up and placing game pieces, and meeting size constraints. 
-                Utilized a lightweight, simple design consisting of a rotating "chomp" arm for item collection and storage. Won third place in the competition overall. 
-                (Skills learned: Solidworks, 3D-printing and fabrication.)
-            </p>
-
-            <p>
-                <strong>Skills:</strong> Engineering design, Solidworks, 3D printing, CNC milling, laser cutting, and assembly.
-            </p>
-
-        </div>
-
-        <div class="project-image">
-
-            <div class="es51-gallery">
-
-                <figure>
-                    <img src="images/es51 turf wars/chomp_lifted.jpeg"
-                        alt="Final Robot">
-
-                    <figcaption>Final Robot ("The Chomper")</figcaption>
-                </figure>
-
-                <figure>
-                    <img src="images/es51 turf wars/chomp_lowered.jpeg"
-                        alt="Side View">
-                    <figcaption>Lowered Chomp Arm Configuration</figcaption>
-                </figure>
-
-                <figure>
-                    <img src="images/es51 turf wars/drivetrain_isometric.png">
-                    <figcaption>CAD Isometric View</figcaption>
-                </figure>
-
-                <figure>
-                    <img src="images/es51 turf wars/drivetrain_top view.png">
-                    <figcaption>CAD Top View</figcaption>
-                </figure>
-
-                <figure class="bottom">
-                    <img src="images/es51 turf wars/swimmcanaics.JPG"
-                        alt="Team">
-                    <figcaption>Team SWIMMCANAICS :)</figcaption>
-                </figure>
-
-            </div>
-
-        </div>
-
-    </section>
 
 
-    <section id="es125" class="project">
-
-        <div class="project-text">
-            <h2>Egg Drop Competition</h2>
-            <p>
-                Final design challenge for my Mechanical Systems course which involved designing a carrier capable
-                of withstanding a (???) ft minimum drop through combining knowledge of mass-spring-damper systems. 
-
-                My team utilized square plates with cutouts to reduce weight, and simulated the different springs in
-                order to determine the optimal location/number of each type of damper. 
-            </p>
-
-            <p>
-                <strong>Skills:</strong> CAD, structural analysis, prototyping,
-                testing...
-            </p>
-        </div>
-
-        <div class="project-image">
-
-            <div class="es125-gallery">
-
-                <figure>
-                    <img src="images/es125 egg drop project/egg_drop build.jpeg"
-                        alt="Prototype">
-                    <figcaption>Building</figcaption>
-                </figure>
-
-                <figure>
-                    <img src="images/es125 egg drop project/egg_drop final.jpeg"
-                        alt="CAD Model">
-                    <figcaption>Final Device</figcaption>
-                </figure>
-
-                <figure>
-                    <img src="images/es125 egg drop project/egg_drop_CAD isometric.png"
-                        alt="Testing">
-                    <figcaption>Isometric View of CAD</figcaption>
-                </figure>
-
-                <figure>
-                    <img src="images/es125 egg drop project/egg_drop_CAD front.png"
-                        alt="Final Design">
-                    <figcaption>Front View of CAD</figcaption>
-                </figure>
-
-                <figure class="bottom video-preview">
-
-                    <a href="images/es125 egg drop project/egg_drop.mov" target="_blank">
-
-                        <img src="images/es125 egg drop project/egg_drop final.jpeg"
-                            alt="Egg Drop Demo">
-
-                        <div class="play-button">
-                            ▶
-                        </div>
-
-                    </a>
-
-                    <figcaption>Competition Demo (Click to Play)</figcaption>
-
-                </figure>
-
-            </div>
-
-        </div>
-
-    </section>
 
 
-    <section id="es120-bridge" class="project">
-
-        <div class="project-text">
-            <h2>Bridge Design Project</h2>
-            <p>
-                A fun design competition for my Mechanics of Solids course that allowed us to explore 
-                stress concentrations/failure in a hands-on manner. (Explain more about bridge design)
-            </p>
-        </div>
-
-        <div class="project-image">
-            <div class="bridge-gallery">
-
-                <figure>
-                    <img src="images/es120 bridge/es120_bridge front.png"
-                        alt="Bridge Design">
-                    <figcaption>Front View of CAD</figcaption>
-                </figure>
-
-                <figure>
-                    <img src="images/es120 bridge/es120_bridge isometric.png"
-                        alt="Bridge Fabrication">
-                    <figcaption>Isometric View of CAD</figcaption>
-                </figure>
-
-                <figure>
-                    <img src="images/es120 bridge/es120_bridge_comp (1).jpeg"
-                        alt="Testing">
-                    <figcaption>Bridge Weigh-in</figcaption>
-                </figure>
-
-                <figure>
-                    <img src="images/es120 bridge/es120_bridge_comp (2).jpeg"
-                        alt="Final Bridge">
-                    <figcaption>Instron Testing</figcaption>
-                </figure>
-
-            </div>
-        </div>
-
-    </section>
-
-
-    <section id="es120-comsol" class="project">
+    <!-- <section id="es120-comsol" class="project">
 
         <div class="project-text">
             <h2>COMSOL Simulation</h2>
@@ -484,10 +470,30 @@
             <img src="images/es120 comsol project/es120_comsol_assum2 point.png" alt="COMSOL Simulation">
         </div>
 
-    </section>
+    </section> -->
 
+
+    <!-- <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+    </div> -->
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+
+        <img id="lightbox-img" src="" alt="">
+
+        <video id="lightbox-video" controls>
+            <source src="" type="video/mp4">
+            Your browser does not support video.
+        </video>
+    </div>
+
+
+    <!-- JAVASCRIPT FILES -->
     <script src="js/script.js"></script>
-
+    <script src="js/projects.js"></script>
+    
 </body>
 
 
