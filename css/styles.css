@@ -7,16 +7,18 @@
 }
 
 
-body {
+/* body {
     margin: 0;
     background-color: black;
     color:white;  
     font-family: "Inter", sans-serif;
-}
+} */
 
-.profile-pic {
-    width: 250px;
-    height: auto;
+body {
+  margin: 0;
+  background-color: #0b0d10;
+  color: white;
+  font-family: "Inter", sans-serif;
 }
 
 /* =========================================
@@ -27,7 +29,7 @@ main {
     padding-top: 90px;
 }
 
-header {
+/* old header {
     position: fixed;
     top: 0;
     left: 0;
@@ -40,8 +42,31 @@ header {
 
     background-color: #333;
     
-    /* padding: 15px 40px; */
     padding: 15px 32px;
+
+    z-index: 1000;
+    transition: transform 0.3s ease;
+} */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 32px;
+
+    background: rgba(0, 0, 0, 0.68);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22); 
 
     z-index: 1000;
     transition: transform 0.3s ease;
@@ -151,6 +176,18 @@ nav a.active {
    ABOUT PAGE
 ========================================= */
 
+/* .profile-pic {
+    width: 250px;
+    height: auto;
+} */
+
+.profile-pic {
+  width: 340px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
 .about-container {
     display: flex;
     align-items: center;
@@ -240,7 +277,53 @@ nav a.active {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
-    /* border-radius: 10px; */
+    cursor: zoom-in;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.hobby-gallery img:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+}
+
+
+
+/* Hobby image lightbox */
+.hobby-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.hobby-lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.hobby-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    color: white;
+    font-size: 42px;
+    font-weight: 300;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.hobby-lightbox-close:hover {
+    opacity: 0.7;
 }
 
 
@@ -444,7 +527,15 @@ nav a.active {
 
     font-size: 22px;
     cursor: pointer;
+
+    z-index: 2;
 }
+
+.carousel-btn:disabled { /* dims arrows on first and last image in carousel */
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
 
 .prev {
     left: -20px;
@@ -564,6 +655,28 @@ nav a.active {
     height: 220px;
     object-fit: cover;
     border-radius: 10px;
+}
+
+.es50-gallery figure {
+  position: relative;
+  margin: 0;
+}
+
+.es50-gallery figcaption {
+    position: absolute;
+
+    left: 15px;
+    bottom: 15px;
+
+    background: rgba(60, 60, 60, 0.8);
+    color: white;
+
+    padding: 5px 8px;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+    font-weight: 500;
 }
 
 
@@ -889,12 +1002,14 @@ nav a.active {
 
 /* LIGHTBOX FOR FULL IMAGE VIEWING */
 /* Make gallery images look clickable */
-.project-gallery img {
+.project-gallery img,
+.carousel-item img {
     cursor: pointer;
     transition: transform 0.2s ease;
 }
 
-.project-gallery img:hover {
+.project-gallery img:hover,
+.carousel-item img:hover {
     transform: scale(1.02);
 }
 
@@ -950,6 +1065,87 @@ nav a.active {
     border-radius: 12px;
 }
 
+/* LIGHTBOX DESCRIPTION TEXT */
+/* .lightbox-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: min(1200px, 90vw);
+  max-height: 90vh;
+} */
+
+.lightbox-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  width: 90vw;
+  max-width: 1200px;
+  max-height: 90vh;
+}
+
+.lightbox-content #lightbox-img {
+  max-width: min(70vw, 800px);
+  max-height: 85vh;
+  object-fit: contain;
+}
+
+.lightbox-description {
+  display: none;
+  max-width: 300px;
+  padding: 1.5rem;
+  border-left: 2px solid #66ccff;
+  background: #1b1b1b;
+  color: white;
+  line-height: 1.65;
+}
+
+.lightbox-description-label {
+  margin: 0 0 0.65rem;
+  color: #66ccff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lightbox-description p:last-child {
+  margin: 0;
+}
+
+.lightbox-content video {
+  max-width: 90vw;
+  max-height: 85vh;
+}
+
+@media (max-width: 800px) {
+  .lightbox-content {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  /* .lightbox-content #lightbox-img {
+    max-width: 90vw;
+    max-height: 65vh;
+  } */
+
+  .lightbox-content #lightbox-img {
+    max-width: min(70vw, 800px);
+    max-height: 85vh;
+    object-fit: contain;
+  }
+
+  .lightbox-description {
+    width: 100%;
+    max-width: 90vw;
+    border-left: 0;
+    border-top: 2px solid #66ccff;
+  }
+}
+
+/* END OF LIGHTBOX DESCRIPTION TEXT */
+
 
 
 
@@ -961,8 +1157,9 @@ nav a.active {
     padding: 0 20px;
 }
 
-.contact-container h1 {
-    margin-bottom: 8px;
+.contact-container h3 {
+  margin-bottom: 0px;
+  font-size: 1.6rem;
 }
 
 .contact-subtitle {
@@ -997,6 +1194,69 @@ nav a.active {
 .contact-item a:hover {
     text-decoration: underline;
 }
+
+/* robot sprite */
+.contact-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.contact-list {
+  flex: 1;
+}
+
+.contact-robot {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-robot img {
+  width: 190px;
+  height: auto;
+  animation: eva-float-bounce 3.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@keyframes eva-float-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+
+
+@media (max-width: 700px) {
+  .contact-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .contact-robot {
+    align-self: center;
+  }
+
+  .contact-robot img {
+    width: 160px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-robot img {
+    animation: none;
+  }
+}
+
+
+
+
 
 
 /* TEMP INDEX REFORMAT */

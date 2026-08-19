@@ -6,15 +6,29 @@ const dots = carousel.querySelectorAll(".dot");
 let currentSlide = 0;
 
 function showSlide(index) {
+  if (index < 0 || index >= slides.length) {
+    return;
+  }
 
-    slides[currentSlide].classList.remove("active");
-    dots[currentSlide].classList.remove("active");
+  slides[currentSlide].classList.remove("active");
+  dots[currentSlide].classList.remove("active");
 
-    currentSlide = (index + slides.length) % slides.length;
+  currentSlide = index;
 
-    slides[currentSlide].classList.add("active");
-    dots[currentSlide].classList.add("active");
+  slides[currentSlide].classList.add("active");
+  dots[currentSlide].classList.add("active");
+
+  updateCarouselButtons();
 }
+
+function updateCarouselButtons() {
+  const previousButton = carousel.querySelector(".prev");
+  const nextButton = carousel.querySelector(".next");
+
+  previousButton.disabled = currentSlide === 0;
+  nextButton.disabled = currentSlide === slides.length - 1;
+}
+
 
 carousel.querySelector(".next").addEventListener("click", () => {
     showSlide(currentSlide + 1);
@@ -71,4 +85,4 @@ window.addEventListener("scroll", () => {
 });
 
 
-
+updateCarouselButtons();

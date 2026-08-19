@@ -4,11 +4,19 @@
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
+
+
 const lightboxVideo = document.getElementById("lightbox-video");
+const lightboxDescription = document.getElementById("lightbox-description");
+const lightboxDescriptionText = document.getElementById("lightbox-description-text");
+
+
 const closeBtn = document.querySelector(".lightbox-close");
 
-// Every image inside a project gallery
-const galleryImages = document.querySelectorAll(".project-gallery img");
+// Every image inside a project gallery AND research carousel
+const galleryImages = document.querySelectorAll(
+  ".project-gallery img, .carousel-item img"
+);
 
 // Every video preview link
 const videoLinks = document.querySelectorAll(".video-link");
@@ -30,6 +38,15 @@ galleryImages.forEach(image => {
         lightboxImg.style.display = "block";
         lightboxImg.src = image.src;
         lightboxImg.alt = image.alt;
+
+        const description = image.dataset.description;
+        if (description) {
+            lightboxDescriptionText.textContent = description;
+            lightboxDescription.style.display = "block";
+        } else {
+            lightboxDescriptionText.textContent = "";
+            lightboxDescription.style.display = "none";
+        }
     });
 });
 
@@ -71,6 +88,9 @@ function closeLightbox() {
     lightboxVideo.currentTime = 0;
     lightboxVideo.src = "";
     lightboxVideo.style.display = "none";
+
+    lightboxDescriptionText.textContent = "";
+    lightboxDescription.style.display = "none";
 }
 
 
